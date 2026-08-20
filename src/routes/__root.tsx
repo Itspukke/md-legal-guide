@@ -77,23 +77,51 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MD Legal Contract Advisory | Commercial Contract Specialists" },
+      {
+        name: "description",
+        content:
+          "Specialist advisory on commercial and corporate contracts in Johannesburg, South Africa.",
+      },
+      { name: "author", content: "MD Legal Contract Advisory" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          name: "MD Legal Contract Advisory",
+          description:
+            "Specialist legal advisory firm focused on commercial and corporate contracts.",
+          email: "mdlegalcontractadvisory@gmail.com",
+          telephone: "+27662407953",
+          areaServed: "Johannesburg, South Africa",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Johannesburg",
+            addressCountry: "ZA",
+          },
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
