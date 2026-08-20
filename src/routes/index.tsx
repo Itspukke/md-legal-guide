@@ -1,24 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { ContactSection } from "@/components/site/ContactSection";
+import { Hero, Mission, Services, Process, Faq, SiteFooter } from "@/components/site/Sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "MD Legal Contract Advisory | Commercial Contract Specialists";
+const description =
+  "Specialist advisory on commercial and corporate contracts in Johannesburg — drafting, review, negotiation, compliance, and contract lifecycle management.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Mission />
+        <Services />
+        <Process />
+        <Faq />
+        <ContactSection />
+      </main>
+      <SiteFooter />
+      <WhatsAppButton />
     </div>
   );
 }
