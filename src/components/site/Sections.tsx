@@ -17,7 +17,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroImage from "@/assets/hero-facade.jpg";
+import heroImage from "@/assets/hero-law.jpg";
+import serviceContract from "@/assets/service-contract.jpg";
+import serviceNegotiation from "@/assets/service-negotiation.jpg";
+import serviceRecords from "@/assets/service-records.jpg";
 import { Reveal } from "./Reveal";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 
@@ -25,64 +28,58 @@ export function Hero() {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setOffset(Math.min(window.scrollY, 700) * 0.08);
+    const onScroll = () => setOffset(Math.min(window.scrollY, 700) * 0.06);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden pt-32 md:pt-40">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 pb-20 md:px-8 md:pb-28 lg:grid-cols-[1.15fr_1fr]">
-        <div>
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              MD Legal Contract Advisory
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="mt-6 text-4xl leading-[1.1] text-navy sm:text-5xl md:text-[3.4rem]">
-              Expert guidance on commercial and corporate contracts.
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground">
-              We help businesses navigate complex agreements with clarity and confidence, ensuring
-              their interests are protected at every step.
-            </p>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="mt-4 text-sm text-navy-soft">Serving clients in Johannesburg and beyond.</p>
-          </Reveal>
-          <Reveal delay={300}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
-                className="bg-navy px-7 py-3 text-sm tracking-wide text-primary-foreground transition-colors duration-200 hover:bg-navy-soft"
-              >
-                Book a Consultation
-              </a>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-navy/25 px-7 py-3 text-sm tracking-wide text-navy transition-colors duration-200 hover:border-gold hover:text-accent-foreground"
-              >
-                WhatsApp Us
-              </a>
-            </div>
-          </Reveal>
-        </div>
+    <section id="home" className="relative isolate flex min-h-[88vh] items-center overflow-hidden">
+      <img
+        src={heroImage}
+        alt="Law office desk with scales of justice and legal texts"
+        width={1920}
+        height={1200}
+        style={{ transform: `translateY(${offset}px) scale(1.06)` }}
+        className="absolute inset-0 -z-10 h-full w-full object-cover will-change-transform"
+      />
+      <div className="absolute inset-0 -z-10 bg-navy/80" />
 
-        <Reveal variant="image" delay={120} as="figure" className="relative">
-          <img
-            src={heroImage}
-            alt="Corporate office towers in Johannesburg at dusk"
-            width={1280}
-            height={1600}
-            style={{ transform: `translateY(-${offset}px)` }}
-            className="h-[380px] w-full object-cover transition-transform duration-100 will-change-transform md:h-[520px]"
-          />
+      <div className="mx-auto w-full max-w-3xl px-5 py-32 text-center md:px-8 md:py-40">
+        <Reveal>
+          <p className="text-xs uppercase tracking-[0.22em] text-primary-foreground/70">
+            MD Legal Contract Advisory
+          </p>
+        </Reveal>
+        <Reveal delay={80}>
+          <h1 className="mt-6 text-4xl leading-[1.1] text-primary-foreground sm:text-5xl md:text-[3.4rem]">
+            Expert guidance on commercial and corporate contracts.
+          </h1>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80">
+            We help businesses navigate complex agreements with clarity and confidence, ensuring
+            their interests are protected at every step.
+          </p>
+        </Reveal>
+        <Reveal delay={300}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#contact"
+              className="bg-gold px-7 py-3 text-sm tracking-wide text-accent-foreground transition-opacity duration-200 hover:opacity-90"
+            >
+              Book a Consultation
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-primary-foreground/35 px-7 py-3 text-sm tracking-wide text-primary-foreground transition-colors duration-200 hover:border-gold hover:text-gold"
+            >
+              WhatsApp Us
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
