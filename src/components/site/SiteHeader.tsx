@@ -61,7 +61,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 top-0 z-40 md:hidden">
+        <div className="fixed inset-0 top-0 z-40 flex flex-col md:hidden">
           <button
             type="button"
             aria-label="Close menu"
@@ -69,6 +69,14 @@ export function SiteHeader() {
             className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-md"
           />
           <nav className="absolute inset-x-0 top-0 border-b border-border bg-background/95 pt-20 pb-6 backdrop-blur-xl">
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground transition-colors hover:bg-navy/90"
+            >
+              <X className="h-5 w-5" />
+            </button>
             <ul className="mx-auto max-w-6xl px-5">
               {links.map((l) => (
                 <li key={l.href}>
