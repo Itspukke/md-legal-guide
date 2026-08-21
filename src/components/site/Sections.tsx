@@ -176,6 +176,27 @@ export function Services() {
           </h2>
         </Reveal>
 
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {[
+            { src: serviceContract, alt: "Signing a commercial contract with a fountain pen" },
+            { src: serviceNegotiation, alt: "Contract negotiation around a boardroom table" },
+            { src: serviceRecords, alt: "Organised legal contract files on an office shelf" },
+          ].map((img, i) => (
+            <Reveal variant="image" key={img.alt} delay={i * 80}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="h-40 w-full object-cover md:h-48"
+              />
+            </Reveal>
+          ))}
+        </div>
+
+
+
         <ul className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal as="li" key={service.title} delay={(i % 3) * 70} className="border-t border-border pt-6">
