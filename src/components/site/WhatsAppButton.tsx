@@ -9,7 +9,8 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 grid h-13 w-13 place-items-center rounded-full bg-navy text-primary-foreground shadow-lg transition-colors duration-200 hover:bg-navy-soft"
+      className="fixed bottom-5 right-5 z-50 grid h-13 w-13 place-items-center rounded-full text-white shadow-lg transition-opacity duration-200 hover:opacity-90"
+      style={{ height: "3.25rem", width: "3.25rem", backgroundColor: "#25D366" }}
       style={{ height: "3.25rem", width: "3.25rem" }}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-current">
