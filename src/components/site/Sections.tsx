@@ -45,7 +45,7 @@ export function Hero() {
         style={{ transform: `translateY(${offset}px) scale(1.06)` }}
         className="absolute inset-0 -z-10 h-full w-full object-cover will-change-transform"
       />
-      <div className="absolute inset-0 -z-10 bg-navy/80" />
+      <div className="absolute inset-0 -z-10 bg-navy/60" />
 
       <div className="mx-auto w-full max-w-3xl px-5 py-32 text-center md:px-8 md:py-40">
         <Reveal>
