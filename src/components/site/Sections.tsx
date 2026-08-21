@@ -22,6 +22,7 @@ import serviceContract from "@/assets/service-contract.jpg";
 import serviceNegotiation from "@/assets/service-negotiation.jpg";
 import serviceRecords from "@/assets/service-records.jpg";
 import { Reveal } from "./Reveal";
+import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 
 export function Hero() {
@@ -165,6 +166,24 @@ const services = [
   },
 ];
 
+const serviceGroups = [
+  {
+    image: { src: serviceContract, alt: "Signing a commercial contract with a fountain pen" },
+    caption: "Drafting & review",
+    items: services.slice(0, 4),
+  },
+  {
+    image: { src: serviceNegotiation, alt: "Contract negotiation around a boardroom table" },
+    caption: "Negotiation & advisory",
+    items: services.slice(4, 7),
+  },
+  {
+    image: { src: serviceRecords, alt: "Organised legal contract files on an office shelf" },
+    caption: "Records & enablement",
+    items: services.slice(7),
+  },
+];
+
 export function Services() {
   return (
     <section id="services" className="py-24 md:py-32">
@@ -176,40 +195,56 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {[
-            { src: serviceContract, alt: "Signing a commercial contract with a fountain pen" },
-            { src: serviceNegotiation, alt: "Contract negotiation around a boardroom table" },
-            { src: serviceRecords, alt: "Organised legal contract files on an office shelf" },
-          ].map((img, i) => (
-            <Reveal variant="image" key={img.alt} delay={i * 80}>
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                width={1024}
-                height={768}
-                className="h-40 w-full object-cover md:h-48"
-              />
-            </Reveal>
+        <div className="mt-14 space-y-16 md:space-y-20">
+          {serviceGroups.map((group, gi) => (
+            <div
+              key={group.caption}
+              className="grid items-start gap-8 md:grid-cols-12 md:gap-10"
+            >
+              <Reveal
+                variant="image"
+                className={cn(
+                  "md:col-span-5",
+                  gi % 2 === 1 && "md:order-2",
+                )}
+              >
+                <img
+                  src={group.image.src}
+                  alt={group.image.alt}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="h-52 w-full object-cover md:h-full md:max-h-72"
+                />
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {group.caption}
+                </p>
+              </Reveal>
+
+              <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2 md:col-span-7">
+                {group.items.map((service, i) => (
+                  <Reveal
+                    as="li"
+                    key={service.title}
+                    delay={i * 70}
+                    className="border-t border-border pt-5"
+                  >
+                    <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                    <h3 className="mt-3 text-lg leading-snug text-navy">{service.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {service.text}
+                    </p>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
-
-
-
-        <ul className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <Reveal as="li" key={service.title} delay={(i % 3) * 70} className="border-t border-border pt-6">
-              <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
-              <h3 className="mt-4 text-lg leading-snug text-navy">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
-            </Reveal>
-          ))}
-        </ul>
       </div>
     </section>
   );
 }
+
 
 const steps = [
   {

@@ -61,22 +61,31 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-background md:hidden">
-          <ul className="mx-auto max-w-6xl px-5 py-2">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-border/60 py-3 text-sm text-navy last:border-0"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="fixed inset-0 top-0 z-40 md:hidden">
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-md"
+          />
+          <nav className="absolute inset-x-0 top-0 border-b border-border bg-background/95 pt-20 pb-6 backdrop-blur-xl">
+            <ul className="mx-auto max-w-6xl px-5">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block border-b border-border/60 py-5 font-serif text-xl text-navy last:border-0"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       )}
+
     </header>
   );
 }
