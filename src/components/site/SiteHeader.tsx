@@ -68,7 +68,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
             className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-md"
           />
-          <nav className="absolute inset-x-0 top-0 h-full bg-background/95 pt-20 backdrop-blur-xl">
+          <nav className="absolute inset-x-0 top-0 border-b border-border bg-background/95 pt-20 pb-6 backdrop-blur-xl">
             <ul className="mx-auto max-w-6xl px-5">
               {links.map((l) => (
                 <li key={l.href}>
