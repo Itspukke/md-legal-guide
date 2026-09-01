@@ -187,15 +187,6 @@ export function ContactSection() {
               </li>
             </ul>
 
-            <div className="border border-border">
-              <iframe
-                title="Map of Johannesburg, South Africa"
-                src="https://www.google.com/maps?q=Johannesburg,+South+Africa&z=11&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-64 w-full grayscale-[35%]"
-              />
-            </div>
           </Reveal>
         </div>
       </div>
