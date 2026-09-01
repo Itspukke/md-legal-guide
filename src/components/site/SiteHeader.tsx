@@ -44,34 +44,35 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           className="shrink-0 p-1 text-navy md:hidden"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="fixed inset-0 top-0 z-40 flex flex-col md:hidden">
+        <div className="fixed inset-0 z-40 flex flex-col md:hidden animate-fade-in">
           <button
             type="button"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
-            className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-md"
+            className="absolute inset-0 h-full w-full bg-navy/95 backdrop-blur-xl"
           />
-          <nav className="absolute inset-x-0 top-0 border-b border-border bg-background/95 pt-20 pb-6 backdrop-blur-xl">
+          <nav className="relative z-10 flex h-full flex-col px-8 pt-24 pb-12">
             <button
               type="button"
               aria-label="Close menu"
               onClick={() => setOpen(false)}
-              className="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground transition-colors hover:bg-navy/90"
+              className="absolute top-5 right-5 p-2 text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
-              <X className="h-5 w-5" />
+              <X className="h-7 w-7" />
             </button>
-            <ul className="mx-auto max-w-6xl px-5">
-              {links.map((l) => (
-                <li key={l.href}>
+            <ul className="flex flex-col gap-2">
+              {links.map((l, i) => (
+                <li key={l.href} className="border-b border-white/10">
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block border-b border-border/60 py-5 font-serif text-xl text-navy last:border-0"
+                    className="block py-5 font-serif text-3xl text-primary-foreground transition-colors hover:text-gold"
+                    style={{ animationDelay: `${i * 60}ms` }}
                   >
                     {l.label}
                   </a>
