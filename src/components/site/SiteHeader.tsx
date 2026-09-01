@@ -22,12 +22,7 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled ? "border-b border-border bg-background/95 backdrop-blur" : "bg-transparent",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-8">
         <a href="#home" className="flex min-w-0 items-center" aria-label="MD Legal Contract Advisory — home">
           <img
