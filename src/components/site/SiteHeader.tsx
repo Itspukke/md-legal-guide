@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/md-legal-logo.png.asset.json";
 
 const links = [
   { label: "Home", href: "#home" },
