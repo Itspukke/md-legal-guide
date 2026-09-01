@@ -111,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           description:
             "Specialist legal advisory firm focused on commercial and corporate contracts.",
           email: "mdlegalcontractadvisory@gmail.com",
-          telephone: "+27662407953",
+          telephone: "+27678767861",
           areaServed: "Johannesburg, South Africa",
           address: {
             "@type": "PostalAddress",

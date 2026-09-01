@@ -371,8 +371,8 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="tel:+27662407953" className="hover:text-accent">
-                  066 240 7953
+                <a href="tel:+27678767861" className="hover:text-accent">
+                  067 876 7861
                 </a>
               </li>
               <li>Johannesburg, South Africa</li>
