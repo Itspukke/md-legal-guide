@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logoAsset from "@/assets/md-legal-logo.png.asset.json";
@@ -11,15 +11,7 @@ const links = [
 ];
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
@@ -30,10 +22,7 @@ export function SiteHeader() {
             alt="MD Legal Contract Advisory logo"
             width={662}
             height={496}
-            className={cn(
-              "h-10 w-auto transition-all duration-300 sm:h-12",
-              !scrolled && "brightness-0 invert",
-            )}
+            className="h-10 w-auto sm:h-12"
           />
         </a>
 
