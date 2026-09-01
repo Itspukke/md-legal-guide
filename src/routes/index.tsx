@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { ContactSection } from "@/components/site/ContactSection";
 import { Hero, Mission, Services, Process, Faq, SiteFooter } from "@/components/site/Sections";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 const title = "MD Legal Contract Advisory | Commercial Contract Specialists";
 const description =
@@ -36,6 +37,7 @@ function Index() {
       </main>
       <SiteFooter />
       <WhatsAppButton />
+      <CookieConsent />
     </div>
   );
 }

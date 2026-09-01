@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/md-legal-logo.png.asset.json";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -28,13 +29,17 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-8">
-        <a href="#home" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center bg-navy font-serif text-sm text-primary-foreground">
-            MD
-          </span>
-          <span className="truncate font-serif text-base tracking-tight text-navy sm:text-lg">
-            MD Legal Contract Advisory
-          </span>
+        <a href="#home" className="flex min-w-0 items-center" aria-label="MD Legal Contract Advisory — home">
+          <img
+            src={logoAsset.url}
+            alt="MD Legal Contract Advisory logo"
+            width={662}
+            height={496}
+            className={cn(
+              "h-10 w-auto transition-all duration-300 sm:h-12",
+              !scrolled && "brightness-0 invert",
+            )}
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
