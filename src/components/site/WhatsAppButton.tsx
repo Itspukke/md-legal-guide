@@ -1,5 +1,5 @@
 export const WHATSAPP_URL =
-  "https://wa.me/27662407953?text=" +
+  "https://wa.me/27678767861?text=" +
   encodeURIComponent("Hi, I'd like to enquire about your contract advisory services.");
 
 export function WhatsAppButton() {

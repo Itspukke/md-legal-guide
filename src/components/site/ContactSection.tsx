@@ -168,8 +168,8 @@ export function ContactSection() {
               <li className="flex gap-4">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <div className="space-y-1">
-                  <a href="tel:+27662407953" className="link-underline block text-sm text-navy">
-                    066 240 7953
+                  <a href="tel:+27678767861" className="link-underline block text-sm text-navy">
+                    067 876 7861
                   </a>
                   <a
                     href={WHATSAPP_URL}
