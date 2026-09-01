@@ -49,30 +49,21 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-40 flex flex-col md:hidden animate-fade-in">
+        <div className="fixed inset-0 z-40 flex flex-col md:hidden">
           <button
             type="button"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
-            className="absolute inset-0 h-full w-full bg-navy/95 backdrop-blur-xl"
+            className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-xl"
           />
-          <nav className="relative z-10 flex h-full flex-col px-8 pt-24 pb-12">
-            <button
-              type="button"
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="absolute top-5 right-5 p-2 text-primary-foreground/80 transition-colors hover:text-primary-foreground"
-            >
-              <X className="h-7 w-7" />
-            </button>
-            <ul className="flex flex-col gap-2">
-              {links.map((l, i) => (
-                <li key={l.href} className="border-b border-white/10">
+          <nav className="relative z-10 w-full border-b border-border bg-background/95 shadow-lg">
+            <ul className="mx-auto flex max-w-6xl flex-col px-5 py-2 md:px-8">
+              {links.map((l) => (
+                <li key={l.href} className="border-b border-border last:border-b-0">
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block py-5 font-serif text-3xl text-primary-foreground transition-colors hover:text-gold"
-                    style={{ animationDelay: `${i * 60}ms` }}
+                    className="block py-3 text-foreground transition-colors hover:text-gold"
                   >
                     {l.label}
                   </a>
