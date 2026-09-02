@@ -57,19 +57,29 @@ export function SiteHeader() {
             className="absolute inset-0 h-full w-full bg-navy/40 backdrop-blur-xl"
           />
           <nav className="relative z-10 w-full border-b border-border bg-background/95 shadow-lg">
-            <ul className="mx-auto flex max-w-6xl flex-col px-5 py-2 md:px-8">
-              {links.map((l) => (
-                <li key={l.href} className="border-b border-border last:border-b-0">
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 text-foreground transition-colors hover:text-gold"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="mx-auto flex max-w-6xl items-start justify-between px-5 py-4 md:px-8">
+              <ul className="flex flex-col">
+                {links.map((l) => (
+                  <li key={l.href} className="border-b border-border last:border-b-0">
+                    <a
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-3 text-foreground transition-colors hover:text-gold"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="p-1 text-navy transition-colors hover:text-gold"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
           </nav>
         </div>
       )}
