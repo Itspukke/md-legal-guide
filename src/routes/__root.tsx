@@ -110,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "MD Legal Contract Advisory",
           description:
             "Specialist legal advisory firm focused on commercial and corporate contracts.",
-          email: "mdlegalcontractadvisory@gmail.com",
+          email: "info@mdlegalcontractadvisory.co.za",
           telephone: "+27678767861",
           areaServed: "Johannesburg, South Africa",
           address: {
