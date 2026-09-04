@@ -159,10 +159,10 @@ export function ContactSection() {
               <li className="flex gap-4">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
-                  href="mailto:mdlegalcontractadvisory@gmail.com"
+                  href="mailto:info@mdlegalcontractadvisory.co.za"
                   className="link-underline break-all text-sm text-navy"
                 >
-                  mdlegalcontractadvisory@gmail.com
+                  info@mdlegalcontractadvisory.co.za
                 </a>
               </li>
               <li className="flex gap-4">
