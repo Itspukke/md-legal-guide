@@ -15,13 +15,13 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-8">
-        <a href="#home" className="flex min-w-0 items-center" aria-label="MD Legal Contract Advisory — home">
+        <a href="#home" className="flex min-w-0 items-center bg-background" aria-label="MD Legal Contract Advisory — home">
           <img
             src={logoAsset.url}
             alt="MD Legal Contract Advisory logo"
             width={662}
             height={496}
-            className="h-10 w-auto brightness-0 invert sm:h-12"
+            className="h-10 w-auto mix-blend-multiply sm:h-12"
           />
         </a>
 
