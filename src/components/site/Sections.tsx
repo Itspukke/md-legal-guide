@@ -366,8 +366,8 @@ export function SiteFooter() {
             <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/60">Contact</p>
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
               <li>
-                <a href="mailto:mdlegalcontractadvisory@gmail.com" className="break-all hover:text-accent">
-                  mdlegalcontractadvisory@gmail.com
+                <a href="mailto:info@mdlegalcontractadvisory.co.za" className="break-all hover:text-accent">
+                  info@mdlegalcontractadvisory.co.za
                 </a>
               </li>
               <li>
