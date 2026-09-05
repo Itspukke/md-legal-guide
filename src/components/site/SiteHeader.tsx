@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/md-legal-logo.jpg.asset.json";
+
 
 const links = [
   { label: "Home", href: "#home" },
@@ -17,12 +17,13 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-8">
         <a href="#home" className="flex min-w-0 items-center" aria-label="MD Legal Contract Advisory — home">
           <img
-            src={logoAsset.url}
+            src="/logo.png"
             alt="MD Legal Contract Advisory logo"
-            width={662}
-            height={496}
+            width={1280}
+            height={592}
             className="h-10 w-auto mix-blend-multiply sm:h-12"
           />
+
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
