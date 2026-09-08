@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Mail, Phone, MapPin, User, Check } from "lucide-react";
+import { Mail, MessageCircle, MapPin, User, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "./Reveal";
 import { WHATSAPP_URL } from "./WhatsAppButton";
@@ -166,20 +166,15 @@ export function ContactSection() {
                 </a>
               </li>
               <li className="flex gap-4">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <div className="space-y-1">
-                  <a href="tel:+27678767861" className="link-underline block text-sm text-navy">
-                    067 876 7861
-                  </a>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-underline block text-sm text-muted-foreground"
-                  >
-                    WhatsApp us
-                  </a>
-                </div>
+                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline block text-sm text-navy"
+                >
+                  WhatsApp: 067 876 7861
+                </a>
               </li>
               <li className="flex gap-4">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
