@@ -10,6 +10,8 @@ import {
   Scale,
   TrendingUp,
   GraduationCap,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
 import {
   Accordion,
@@ -18,12 +20,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-law.jpg";
-import serviceContract from "@/assets/service-contract.jpg";
-import serviceNegotiation from "@/assets/service-negotiation.jpg";
-import serviceRecords from "@/assets/service-records.jpg";
+import serviceContract from "@/assets/service-contract-female.jpg";
+import serviceNegotiation from "@/assets/service-negotiation-female-v2.jpg";
+import serviceRecords from "@/assets/service-records-female-v2.jpg";
 import { Reveal } from "./Reveal";
-import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "./WhatsAppButton";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
   const [offset, setOffset] = useState(0);
@@ -60,8 +62,8 @@ export function Hero() {
         </Reveal>
         <Reveal delay={160}>
           <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-primary-foreground/80">
-            We help businesses navigate complex agreements with clarity and confidence, ensuring
-            their interests are protected at every step.
+            We help individuals and businesses navigate complex agreements with clarity and
+            confidence, ensuring their interests are protected at every step.
           </p>
         </Reveal>
         <Reveal delay={300}>
@@ -168,23 +170,36 @@ const services = [
 
 const serviceGroups = [
   {
-    image: { src: serviceContract, alt: "Hands signing a commercial contract with a fountain pen" },
+    image: { src: serviceContract, alt: "Black woman's hands signing a commercial contract with a fountain pen" },
     caption: "Drafting & review",
     items: services.slice(0, 4),
   },
   {
-    image: { src: serviceNegotiation, alt: "Hands discussing contract documents across a boardroom table" },
+    image: { src: serviceNegotiation, alt: "Black women's hands discussing contract documents across a boardroom table" },
     caption: "Negotiation & advisory",
     items: services.slice(4, 7),
   },
   {
-    image: { src: serviceRecords, alt: "Hand reaching for a labelled contract binder on an office shelf" },
+    image: { src: serviceRecords, alt: "Black woman's hand reaching for a labelled contract binder on an office shelf" },
     caption: "Records & enablement",
     items: services.slice(7),
   },
 ];
 
 export function Services() {
+  const [activeGroup, setActiveGroup] = useState(0);
+  const group = serviceGroups[activeGroup];
+
+  if (!group) return null;
+
+  const showPrevious = () => {
+    setActiveGroup((current) => (current - 1 + serviceGroups.length) % serviceGroups.length);
+  };
+
+  const showNext = () => {
+    setActiveGroup((current) => (current + 1) % serviceGroups.length);
+  };
+
   return (
     <section id="services" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
@@ -195,51 +210,63 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 space-y-16 md:space-y-20">
-          {serviceGroups.map((group, gi) => (
-            <div
-              key={group.caption}
-              className="grid items-start gap-8 md:grid-cols-12 md:gap-10"
-            >
-              <Reveal
-                variant="image"
-                className={cn(
-                  "md:col-span-5",
-                  gi % 2 === 1 && "md:order-2",
-                )}
-              >
-                <img
-                  src={group.image.src}
-                  alt={group.image.alt}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="h-52 w-full object-cover md:h-full md:max-h-72"
-                />
-                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {group.caption}
-                </p>
-              </Reveal>
+        <Reveal className="mt-14">
+          <div className="grid min-h-[31rem] overflow-hidden border border-border bg-card md:grid-cols-12">
+            <figure className="relative min-h-64 md:col-span-5 md:min-h-full">
+              <img
+                key={group.image.src}
+                src={group.image.src}
+                alt={group.image.alt}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <figcaption className="absolute bottom-0 left-0 bg-navy/90 px-5 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground">
+                {group.caption}
+              </figcaption>
+            </figure>
 
-              <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2 md:col-span-7">
-                {group.items.map((service, i) => (
-                  <Reveal
-                    as="li"
-                    key={service.title}
-                    delay={i * 70}
-                    className="border-t border-border pt-5"
-                  >
+            <div className="flex flex-col p-6 sm:p-8 md:col-span-7 md:p-10">
+              <div className="mb-8 flex items-center justify-between border-b border-border pb-5">
+                <p className="text-sm text-muted-foreground">
+                  Service collection {activeGroup + 1} of {serviceGroups.length}
+                </p>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="icon" onClick={showPrevious} aria-label="Previous services">
+                    <ArrowLeft />
+                  </Button>
+                  <Button variant="outline" size="icon" onClick={showNext} aria-label="Next services">
+                    <ArrowRight />
+                  </Button>
+                </div>
+              </div>
+
+              <ul key={group.caption} className="grid flex-1 content-start gap-x-10 gap-y-8 sm:grid-cols-2">
+                {group.items.map((service) => (
+                  <li key={service.title} className="border-t border-border pt-5">
                     <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                     <h3 className="mt-3 text-lg leading-snug text-navy">{service.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {service.text}
-                    </p>
-                  </Reveal>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
+                  </li>
                 ))}
               </ul>
+
+              <div className="mt-8 flex gap-2" aria-label="Choose service collection">
+                {serviceGroups.map((item, index) => (
+                  <Button
+                    key={item.caption}
+                    variant="ghost"
+                    onClick={() => setActiveGroup(index)}
+                    aria-label={`Show ${item.caption}`}
+                    aria-current={index === activeGroup ? "true" : undefined}
+                    className={`h-5 min-w-0 flex-1 rounded-none p-0 transition-colors ${index === activeGroup ? "bg-gold hover:bg-gold/90" : "bg-border hover:bg-border/70"}`}
+                  />
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -253,7 +280,7 @@ const steps = [
   },
   {
     title: "Consultation",
-    text: "Discuss your contract needs directly with Dineo Motepe.",
+    text: "Engage with a member of our team to address your contractual requirements.",
   },
   {
     title: "Tailored Support",
@@ -371,8 +398,8 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="tel:+27678767861" className="hover:text-accent">
-                  067 876 7861
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                  WhatsApp: 067 876 7861
                 </a>
               </li>
               <li>Johannesburg, South Africa</li>
