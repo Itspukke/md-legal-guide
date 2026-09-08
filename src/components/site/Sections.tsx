@@ -21,8 +21,8 @@ import {
 } from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-law.jpg";
 import serviceContract from "@/assets/service-contract-female.jpg";
-import serviceNegotiation from "@/assets/service-negotiation-female.jpg";
-import serviceRecords from "@/assets/service-records-female.jpg";
+import serviceNegotiation from "@/assets/service-negotiation-female-v2.jpg";
+import serviceRecords from "@/assets/service-records-female-v2.jpg";
 import { Reveal } from "./Reveal";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { Button } from "@/components/ui/button";
