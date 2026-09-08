@@ -170,17 +170,17 @@ const services = [
 
 const serviceGroups = [
   {
-    image: { src: serviceContract, alt: "Hands signing a commercial contract with a fountain pen" },
+    image: { src: serviceContract, alt: "Black woman's hands signing a commercial contract with a fountain pen" },
     caption: "Drafting & review",
     items: services.slice(0, 4),
   },
   {
-    image: { src: serviceNegotiation, alt: "Hands discussing contract documents across a boardroom table" },
+    image: { src: serviceNegotiation, alt: "Black women's hands discussing contract documents across a boardroom table" },
     caption: "Negotiation & advisory",
     items: services.slice(4, 7),
   },
   {
-    image: { src: serviceRecords, alt: "Hand reaching for a labelled contract binder on an office shelf" },
+    image: { src: serviceRecords, alt: "Black woman's hand reaching for a labelled contract binder on an office shelf" },
     caption: "Records & enablement",
     items: services.slice(7),
   },
@@ -254,20 +254,19 @@ export function Services() {
 
               <div className="mt-8 flex gap-2" aria-label="Choose service collection">
                 {serviceGroups.map((item, index) => (
-                  <button
+                  <Button
                     key={item.caption}
-                    type="button"
+                    variant="ghost"
                     onClick={() => setActiveGroup(index)}
                     aria-label={`Show ${item.caption}`}
                     aria-current={index === activeGroup ? "true" : undefined}
-                    className={`h-1.5 flex-1 transition-colors ${index === activeGroup ? "bg-gold" : "bg-border"}`}
+                    className={`h-5 min-w-0 flex-1 rounded-none p-0 transition-colors ${index === activeGroup ? "bg-gold hover:bg-gold/90" : "bg-border hover:bg-border/70"}`}
                   />
                 ))}
               </div>
             </div>
           </div>
         </Reveal>
-        </div>
       </div>
     </section>
   );
