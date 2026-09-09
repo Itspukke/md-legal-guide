@@ -21,7 +21,7 @@ export function SiteHeader() {
             alt="MD Legal Contract Advisory logo"
             width={1280}
             height={592}
-            className="h-20 w-auto mix-blend-multiply sm:h-24"
+            className="h-18 w-auto mix-blend-multiply sm:h-20"
           />
 
         </a>
