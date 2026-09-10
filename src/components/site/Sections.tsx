@@ -188,7 +188,16 @@ const serviceGroups = [
 
 export function Services() {
   const [activeGroup, setActiveGroup] = useState(0);
+  const [paused, setPaused] = useState(false);
   const group = serviceGroups[activeGroup];
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setActiveGroup((current) => (current + 1) % serviceGroups.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [paused]);
 
   if (!group) return null;
 
@@ -211,7 +220,11 @@ export function Services() {
         </Reveal>
 
         <Reveal className="mt-14">
-          <div className="grid min-h-[31rem] overflow-hidden border border-border bg-card md:grid-cols-12">
+          <div
+            className="grid min-h-[31rem] overflow-hidden border border-border bg-card md:grid-cols-12"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
             <figure className="relative min-h-64 md:col-span-5 md:min-h-full">
               <img
                 key={group.image.src}
