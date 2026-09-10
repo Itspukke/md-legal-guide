@@ -188,7 +188,16 @@ const serviceGroups = [
 
 export function Services() {
   const [activeGroup, setActiveGroup] = useState(0);
+  const [paused, setPaused] = useState(false);
   const group = serviceGroups[activeGroup];
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setActiveGroup((current) => (current + 1) % serviceGroups.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [paused]);
 
   if (!group) return null;
 
