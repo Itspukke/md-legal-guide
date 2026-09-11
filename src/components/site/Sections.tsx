@@ -10,8 +10,6 @@ import {
   Scale,
   TrendingUp,
   GraduationCap,
-  ArrowLeft,
-  ArrowRight,
 } from "lucide-react";
 import {
   Accordion,
@@ -201,14 +199,6 @@ export function Services() {
 
   if (!group) return null;
 
-  const showPrevious = () => {
-    setActiveGroup((current) => (current - 1 + serviceGroups.length) % serviceGroups.length);
-  };
-
-  const showNext = () => {
-    setActiveGroup((current) => (current + 1) % serviceGroups.length);
-  };
-
   return (
     <section id="services" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
@@ -245,14 +235,6 @@ export function Services() {
                 <p className="text-sm text-muted-foreground">
                   Service collection {activeGroup + 1} of {serviceGroups.length}
                 </p>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="icon" onClick={showPrevious} aria-label="Previous services">
-                    <ArrowLeft />
-                  </Button>
-                  <Button variant="outline" size="icon" onClick={showNext} aria-label="Next services">
-                    <ArrowRight />
-                  </Button>
-                </div>
               </div>
 
               <ul key={group.caption} className="grid flex-1 content-start gap-x-10 gap-y-8 sm:grid-cols-2">
