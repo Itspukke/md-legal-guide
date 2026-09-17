@@ -215,7 +215,7 @@ export function Services() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <figure className="relative min-h-64 md:col-span-5 md:min-h-full">
+            <figure className="relative min-h-64 overflow-hidden md:col-span-5 md:min-h-full">
               <img
                 key={group.image.src}
                 src={group.image.src}
@@ -223,7 +223,7 @@ export function Services() {
                 loading="lazy"
                 width={1024}
                 height={768}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full animate-in fade-in zoom-in-105 object-cover duration-700 ease-out"
               />
               <figcaption className="absolute bottom-0 left-0 bg-navy/90 px-5 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground">
                 {group.caption}
@@ -237,9 +237,16 @@ export function Services() {
                 </p>
               </div>
 
-              <ul key={group.caption} className="grid flex-1 content-start gap-x-10 gap-y-8 sm:grid-cols-2">
-                {group.items.map((service) => (
-                  <li key={service.title} className="border-t border-border pt-5">
+              <ul
+                key={group.caption}
+                className="grid flex-1 content-start gap-x-10 gap-y-8 animate-in fade-in slide-in-from-right-4 duration-500 ease-out sm:grid-cols-2"
+              >
+                {group.items.map((service, i) => (
+                  <li
+                    key={service.title}
+                    style={{ animationDelay: `${i * 80}ms` }}
+                    className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both border-t border-border pt-5 duration-500"
+                  >
                     <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                     <h3 className="mt-3 text-lg leading-snug text-navy">{service.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
@@ -262,6 +269,50 @@ export function Services() {
             </div>
           </div>
         </Reveal>
+
+        <div className="mt-20">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Full scope</p>
+            <h3 className="mt-4 max-w-2xl text-2xl text-navy md:text-3xl">
+              All services at a glance
+            </h3>
+          </Reveal>
+
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
+            {serviceGroups.map((grp, i) => (
+              <Reveal as="div" key={grp.caption} delay={i * 90}>
+                <div className="flex h-full flex-col border border-border bg-card">
+                  <figure className="relative h-40 w-full overflow-hidden">
+                    <img
+                      src={grp.image.src}
+                      alt={grp.image.alt}
+                      loading="lazy"
+                      width={640}
+                      height={480}
+                      className="h-full w-full object-cover"
+                    />
+                    <figcaption className="absolute bottom-0 left-0 bg-navy/90 px-4 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-primary-foreground">
+                      {grp.caption}
+                    </figcaption>
+                  </figure>
+                  <ul className="flex flex-1 flex-col gap-5 p-6">
+                    {grp.items.map((service) => (
+                      <li key={service.title} className="flex gap-3">
+                        <service.icon className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={1.5} />
+                        <div>
+                          <h4 className="text-sm text-navy">{service.title}</h4>
+                          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                            {service.text}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
