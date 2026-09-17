@@ -193,7 +193,7 @@ export function Services() {
     if (paused) return;
     const id = window.setInterval(() => {
       setActiveGroup((current) => (current + 1) % serviceGroups.length);
-    }, 6000);
+    }, 3500);
     return () => window.clearInterval(id);
   }, [paused]);
 
@@ -244,7 +244,7 @@ export function Services() {
                 {group.items.map((service, i) => (
                   <li
                     key={service.title}
-                    style={{ animationDelay: `${i * 80}ms` }}
+                    style={{ animationDelay: `${i * 700}ms` }}
                     className="animate-in fade-in slide-in-from-bottom-2 fill-mode-both border-t border-border pt-5 duration-500"
                   >
                     <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
