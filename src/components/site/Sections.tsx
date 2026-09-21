@@ -49,15 +49,13 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-3xl px-5 py-32 text-center md:px-8 md:py-40">
   <Reveal>
-  <div className="mx-auto -mt-6 inline-flex items-center justify-center rounded-md bg-primary-foreground/95 px-6 py-4 shadow-lg sm:-mt-10 sm:px-8 sm:py-5">
-    <img
-      src="/logo_b.png"
-      alt="MD Legal Contract Advisory logo"
-      width={1280}
-      height={592}
-      className="h-20 w-auto sm:h-24"
-    />
-  </div>
+  <img
+    src="/logo_p.png"
+    alt="MD Legal Contract Advisory logo"
+    width={1280}
+    height={592}
+    className="mx-auto -mt-6 h-16 w-auto mix-blend-multiply sm:-mt-10 sm:h-20"
+  />
 </Reveal>
 <Reveal delay={40}>
   <p className="mt-4 text-xs uppercase tracking-[0.22em] text-primary-foreground/70">
