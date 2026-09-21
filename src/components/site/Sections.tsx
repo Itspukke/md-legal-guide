@@ -48,11 +48,20 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-navy/60" />
 
       <div className="mx-auto w-full max-w-3xl px-5 py-32 text-center md:px-8 md:py-40">
-        <Reveal>
-          <p className="text-xs uppercase tracking-[0.22em] text-primary-foreground/70">
-            MD Legal Contract Advisory
-          </p>
-        </Reveal>
+       <Reveal>
+  <img
+    src="/logo.png"
+    alt="MD Legal Contract Advisory logo"
+    width={1280}
+    height={592}
+    className="mx-auto h-16 w-auto mix-blend-multiply sm:h-20"
+  />
+</Reveal>
+<Reveal delay={40}>
+  <p className="mt-4 text-xs uppercase tracking-[0.22em] text-primary-foreground/70">
+    MD Legal Contract Advisory
+  </p>
+</Reveal>
         <Reveal delay={80}>
           <h1 className="mt-6 text-4xl leading-[1.1] text-primary-foreground sm:text-5xl md:text-[3.4rem]">
             Expert guidance on commercial and corporate contracts.
