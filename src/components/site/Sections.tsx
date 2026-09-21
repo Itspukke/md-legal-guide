@@ -50,7 +50,7 @@ export function Hero() {
       <div className="mx-auto w-full max-w-3xl px-5 py-32 text-center md:px-8 md:py-40">
        <Reveal>
   <img
-    src="/logo.png"
+    src="/logo_b.png"
     alt="MD Legal Contract Advisory logo"
     width={1280}
     height={592}
