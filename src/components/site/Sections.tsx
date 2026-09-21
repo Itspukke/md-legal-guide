@@ -54,7 +54,7 @@ export function Hero() {
     alt="MD Legal Contract Advisory logo"
     width={1280}
     height={592}
-    className="mx-auto -mt-6 h-16 w-auto mix-blend-multiply sm:-mt-10 sm:h-20"
+    className="mx-auto -mt-10 h-20 w-auto mix-blend-multiply sm:-mt-14 sm:h-24"
   />
 </Reveal>
 <Reveal delay={40}>
