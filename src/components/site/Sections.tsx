@@ -64,7 +64,7 @@ export function Hero() {
 </Reveal>
         <Reveal delay={80}>
           <h1 className="mt-6 text-4xl leading-[1.1] text-primary-foreground sm:text-5xl md:text-[3.4rem]">
-            Expert guidance on commercial and corporate contracts.
+            Expert <span className="text-gold">guidance</span> on commercial and corporate contracts.
           </h1>
         </Reveal>
         <Reveal delay={160}>
