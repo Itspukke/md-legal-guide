@@ -150,13 +150,6 @@ export function ContactSection() {
           <Reveal delay={160} className="space-y-8">
             <ul className="space-y-6">
               <li className="flex gap-4">
-                <User className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <div className="min-w-0">
-                  <p className="text-sm text-navy">Dineo Motepe</p>
-                  <p className="text-sm text-muted-foreground">Legal Contract Specialist</p>
-                </div>
-              </li>
-              <li className="flex gap-4">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
                   href="mailto:info@mdlegalcontractadvisory.co.za"

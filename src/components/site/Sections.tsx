@@ -112,11 +112,6 @@ export function Mission() {
             compliance, and confidence in every agreement and decision."
           </blockquote>
         </Reveal>
-        <Reveal delay={180}>
-          <p className="mt-8 pl-6 text-sm text-primary-foreground/70 md:pl-9">
-            Dineo Motepe — Legal Contract Specialist
-          </p>
-        </Reveal>
       </div>
     </section>
   );
